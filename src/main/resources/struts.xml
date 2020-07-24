@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.action.extension" value=""/>
+    <constant name="struts.devMode" value="true"/>
+    <package name="hellostruts2" extends="struts-default">
+        <default-action-ref name="get-records"/>
+        <action name="index">
+            <result>/add.jsp</result>
+        </action>
+        <action name="get-records" class="action.RecordAction" method="list">
+            <result name="success">/listRecord.jsp</result>
+        </action>
+        <action name="create-record" class="action.RecordAction" method="createRecord">
+            <result name="input">/addRecord.jsp</result>
+        </action>
+        <action name="save" class="action.RecordAction" method="save">
+            <result name="success" type="redirectAction">get-records</result>
+            <result name="input">/addRecord.jsp</result>
+        </action>
+        <action name="edit-record" class="action.RecordAction" method="getRecordById">
+            <result name="input">/updateRecord.jsp</result>
+        </action>
+<!--        <action name="-student" class="action.RecordAction" method="update">-->
+<!--            <result name="success" type="redirectAction">get-students</result>-->
+<!--            <result name="input">/get-students.jsp</result>-->
+<!--        </action>-->
+
+
+
+
+
+
+
+
+    </package>
+</struts>
